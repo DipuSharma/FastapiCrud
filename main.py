@@ -12,7 +12,7 @@ DATABASE_URL = "sqlite:///./Student.db"
 metadata = sqlalchemy.MetaData()
 database = databases.Database(DATABASE_URL)
 register = sqlalchemy.Table(
-    "register",
+    "Student",
     metadata,
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column("name", sqlalchemy.String(500)),
@@ -63,7 +63,10 @@ async def create(r: StudentIn = Depends()):
 async def get_one(id: int):
     query = register.select().where(register.c.id == id)
     user = await database.fetch_one(query)
-    return {**user}
+    if user:
+        return {**user}
+    if not user:
+        return {'message': f'Data Not found of this Id {id}'}
 
 
 @app.get('/Student/', response_model=List[Student])
