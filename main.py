@@ -5,7 +5,7 @@ import databases
 import sqlalchemy
 from datetime import datetime
 
-app = FastAPI()
+app = FastAPI(title='My App')
 
 DATABASE_URL = "sqlite:///./Student.db"
 
@@ -94,5 +94,3 @@ async def delete(id: int):
     delete_id = await database.execute(query)
     if not delete_id:
         return {'messages': f"No details found of this Id{id}"}
-    return {'messages': f"Data Successfully deleted of Id{id}"}
-
