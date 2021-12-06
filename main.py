@@ -4,8 +4,15 @@ from typing import List
 import databases
 import sqlalchemy
 from datetime import datetime
-
-app = FastAPI(title='My App')
+tags = [{"name": "Create", "description": "This are my user creation routes"},
+        {"name": "Get_All", "description": "This are my all Data fetch routes"},
+        {"name": "Get_One", "description": "This are my Single data fetch routes"},
+        {"name": "Update", "description": "This are my Single Data Updating routes"},
+        {"name": "Delete", "description": "This are Single Data Deletion routes"}]
+app = FastAPI(title='My App',
+              contact={"name": "Dipu Kumar Sharma",
+                       "email": "dipu.s@dreamztech.com"},
+              openapi_tags=tags)
 
 DATABASE_URL = "sqlite:///./Student.db"
 
@@ -47,7 +54,7 @@ class Student(BaseModel):
     date_created: datetime
 
 
-@app.post('/Student/', response_model=Student)
+@app.post('/Student/', response_model=Student, tags=['Create'])
 async def create(r: StudentIn = Depends()):
     query = register.insert().values(
         name=r.name,
@@ -59,7 +66,7 @@ async def create(r: StudentIn = Depends()):
     return {**row}
 
 
-@app.get('/Student/{id}', response_model=Student)
+@app.get('/Student/{id}', response_model=Student, tags=['Get_One'])
 async def get_one(id: int):
     query = register.select().where(register.c.id == id)
     user = await database.fetch_one(query)
@@ -69,14 +76,14 @@ async def get_one(id: int):
         return {'message': f'Data Not found of this Id {id}'}
 
 
-@app.get('/Student/', response_model=List[Student])
+@app.get('/Student/', response_model=List[Student], tags=['Get_All'])
 async def get_all():
     query = register.select()
     all_get = await database.fetch_all(query)
     return all_get
 
 
-@app.put('/Student/{id}', response_model=Student)
+@app.put('/Student/{id}', response_model=Student, tags=['Update'])
 async def update(id: int, r: StudentIn = Depends()):
     query = register.update().where(register.c.id == id).values(
         name=r.name,
@@ -88,7 +95,7 @@ async def update(id: int, r: StudentIn = Depends()):
     return {**row}
 
 
-@app.delete("/Student/{id}", response_model=Student)
+@app.delete("/Student/{id}", response_model=Student, tags=['Delete'])
 async def delete(id: int):
     query = register.delete().where(register.c.id == id)
     delete_id = await database.execute(query)
