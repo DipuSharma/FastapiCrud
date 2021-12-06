@@ -12,7 +12,8 @@ tags = [{"name": "Create", "description": "This are my user creation routes"},
 app = FastAPI(title='My App',
               contact={"name": "Dipu Kumar Sharma",
                        "email": "dipu.s@dreamztech.com"},
-              openapi_tags=tags)
+              openapi_tags=tags,
+              docs_url='/dipu')
 
 DATABASE_URL = "sqlite:///./Student.db"
 
