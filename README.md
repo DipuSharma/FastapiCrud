@@ -6,6 +6,8 @@ go to your gmail account and do the less security option on and lets use it
 
 # Commond for run fastapi without microservice
 Open your terminal and go in app directory and run the following commond
+E:\FastApi_Pro\Fastapi>python -m venv venv
+E:\FastApi_Pro\Fastapi>pip install -r requirements.txt
 E:\FastApi_Pro\Fastapi\app> uvicorn main:app --reload
 
 # Run this app using microservice
