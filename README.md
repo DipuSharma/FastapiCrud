@@ -9,7 +9,11 @@ First you have download this repository  https://github.com/DipuSharma/FastapiCr
 Befor run this app you should check docker install in your system or not.
 After install Docker then you run this app usin given commond
 
-# Commond
+# Commond for fastapi run
+Open your terminal and go to app directory and run the following commond
+E:\FastApi_Pro\Fastapi\app> uvicorn main:app --reload
+
+# Commond for microservice
 Go to app directory on your terminal just like.
 E:\FastApi_Pro\Fastapi>
 then your run commond docker-compose up -d  and hit Enter
