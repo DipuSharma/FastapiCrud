@@ -4,10 +4,7 @@ from typing import List
 import databases
 import sqlalchemy
 from datetime import datetime
-from sqlalchemy import ForeignKey, Boolean, Column, Integer, String
-from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse
-from starlette.requests import Request
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 
 
@@ -17,7 +14,7 @@ class EmailSchema(BaseModel):
 
 conf = ConnectionConfig(
     MAIL_USERNAME="sdipu231@gmail.com",  ## Enter Your Gmail Id
-    MAIL_PASSWORD="Kanchan57@",  ## Enter Your Password
+    MAIL_PASSWORD="Kanchan57",  ## Enter Your Password
     MAIL_FROM="sdipu231@gmail.com",  ## Enter Again Your Gmail Id
     MAIL_PORT=587,
     MAIL_SERVER="smtp.gmail.com",
@@ -32,7 +29,7 @@ tags = [{"name": "Create", "description": "This are my user creation routes"},
         {"name": "Get_One", "description": "This are my Single data fetch routes"},
         {"name": "Update", "description": "This are my Single Data Updating routes"},
         {"name": "Delete", "description": "This are Single Data Deletion routes"},
-        {"name": "Send-Mail", "description": "Send Mail Using Fastapi routes"}]
+        {"name": "Send-Mail", "description": "Send Mail Using Fastapi routes, Please mention your gmail, pass in code"}]
 
 app = FastAPI(title='My App',
               version="0.0.0.1",
