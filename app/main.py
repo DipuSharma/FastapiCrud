@@ -3,9 +3,16 @@ from pydantic import BaseModel, Field, EmailStr
 from typing import List
 import databases
 import sqlalchemy
+import os
 from datetime import datetime
 from starlette.responses import JSONResponse
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
+from dotenv import load_dotenv
+
+load_dotenv()
+
+EMAIL = os.getenv('EMAIL')
+PASS = os.getenv('PASS')
 
 
 class EmailSchema(BaseModel):
@@ -13,9 +20,9 @@ class EmailSchema(BaseModel):
 
 
 conf = ConnectionConfig(
-    MAIL_USERNAME="example@gmail.com",  ## Enter Your Gmail Id
-    MAIL_PASSWORD="Pass123@",  ## Enter Your Password
-    MAIL_FROM="example@gmail.com",  ## Enter Again Your Gmail Id
+    MAIL_USERNAME=EMAIL,  ## Enter Your Gmail Id
+    MAIL_PASSWORD=PASS,  ## Enter Your Password
+    MAIL_FROM=EMAIL,  ## Enter Again Your Gmail Id
     MAIL_PORT=587,
     MAIL_SERVER="smtp.gmail.com",
     MAIL_TLS=True,
