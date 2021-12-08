@@ -14,5 +14,5 @@ wait minute or second is depend uppon your system speed
 then type 
 E:\FastApi_Pro\Fastapi>docker images  # Show your image file which is availble in docker application 
 and now run commond 
-E:\FastApi_Pro\Fastapi\app>docker ps
+E:\FastApi_Pro\Fastapi>docker ps
 if you follow that above process then you have docker process otherwise you have error
