@@ -4,7 +4,7 @@ Fastapi Crud operation and email send using fastapi
 Replace example@gmail.com in main.py file to your gmail id and also replace Pass123@ to your gmail password
 go to your gmail account and do the less security option on and lets use it 
 
-# Commond for fastapi run without microservice
+# Commond for run fastapi without microservice
 Open your terminal and go in app directory and run the following commond
 E:\FastApi_Pro\Fastapi\app> uvicorn main:app --reload
 
