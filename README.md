@@ -1,5 +1,8 @@
 # FastapiCrud
 Fastapi Crud operation and email send using fastapi
+# For use Email
+replace example@gmail.com in main.py file to your gmail id and also replace Pass123@ to your gmail password
+go to your gmail account and do the less security option on and lets use it 
 
 # Run this app
 First you have download this repository  https://github.com/DipuSharma/FastapiCrud
