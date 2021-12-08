@@ -13,9 +13,9 @@ class EmailSchema(BaseModel):
 
 
 conf = ConnectionConfig(
-    MAIL_USERNAME="sdipu231@gmail.com",  ## Enter Your Gmail Id
-    MAIL_PASSWORD="Kanchan57",  ## Enter Your Password
-    MAIL_FROM="sdipu231@gmail.com",  ## Enter Again Your Gmail Id
+    MAIL_USERNAME="####",  ## Enter Your Gmail Id
+    MAIL_PASSWORD="#######",  ## Enter Your Password
+    MAIL_FROM="####",  ## Enter Again Your Gmail Id
     MAIL_PORT=587,
     MAIL_SERVER="smtp.gmail.com",
     MAIL_TLS=True,
