@@ -30,3 +30,7 @@ class TestCal(unittest.TestCase):
     def test_hcf(self):
         rshcf = testingcode.comput_hcf(n1, n2)
         self.assertEqual(rshcf, rhcf)
+
+    def test_prime(self):
+        rpm = testingcode.prime(n1, n2)
+        print(rpm)
