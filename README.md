@@ -4,6 +4,11 @@ Fastapi Crud operation and email send using fastapi
 Create .env file and make variable EMAIL = "example@gmail.com" and PASS= "Pass123@" and
 go to your gmail account and do the less security option on and lets use it 
 
+# For Gmail Api test
+replace /gmail?email=example@gamil.com to receipt gmail id as your wish in testapi.py file
+Go to app1 directory and run the commond 
+E:\FastApi_Pro\Fastapi\app1>python -m pytest testapi.py
+
 # Commond for run fastapi without Docker
 Open your terminal and go in app directory and run the following commond
 E:\FastApi_Pro\Fastapi>python -m venv venv
