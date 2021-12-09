@@ -6,6 +6,21 @@ go to your gmail account and do the less security option on and lets use it
 
 # For Gmail Api test
 replace /gmail?email=example%40gmail.com to receipt gmail id as your wish in testapi.py file
+Example 
+from fastapi.testclient import TestClient
+from main import app
+
+client = TestClient(app)
+
+
+def test_mail():
+    response = client.post("/gmail?email=example%40gmail.com")  ### username write only before @gmail.com
+    assert response.status_code == 200
+    assert response.json() == {
+        "message": "email has been sent",
+    }
+    
+    
 Go to app1 directory and run the commond 
 E:\FastApi_Pro\Fastapi\app1>python -m pytest testapi.py
 
