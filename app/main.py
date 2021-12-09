@@ -1,13 +1,15 @@
-from fastapi import FastAPI, Depends, APIRouter, BackgroundTasks, UploadFile, File, Form
+from fastapi import FastAPI, Depends
 from pydantic import BaseModel, Field, EmailStr
 from typing import List
-import databases
-import sqlalchemy
-import os
 from datetime import datetime
 from starlette.responses import JSONResponse
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
 from dotenv import load_dotenv
+import databases
+from dbconfig import DATABASE_URL
+import sqlalchemy as _sql
+import sqlalchemy.orm as _orm
+import os
 
 load_dotenv()
 
@@ -46,34 +48,22 @@ app = FastAPI(title='My App',
               docs_url='/dipu')
 
 html = """
-<p>Kya Hall hei Madam </p> 
-<h1>Etna Gussa nhi hoteyin</h1>
+<p>dfgdfgdf</p> 
+<h1>dgdfgdfg</h1>
 """
 
-DATABASE_URL = "sqlite:///./Student.db"
 
-metadata = sqlalchemy.MetaData()
+metadata = _sql.MetaData()
 database = databases.Database(DATABASE_URL)
-register = sqlalchemy.Table(
+register = _sql.Table(
     "Student",
     metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("name", sqlalchemy.String(500)),
-    sqlalchemy.Column("date_created", sqlalchemy.DateTime())
-
-)
-store = sqlalchemy.Table(
-    "Book",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("name", sqlalchemy.String(500)),
-    sqlalchemy.Column("student_id", sqlalchemy.ForeignKey("Student.id"))
+    _sql.Column("id", _sql.Integer, primary_key=True),
+    _sql.Column("name", _sql.String(500)),
+    _sql.Column("date_created", _sql.DateTime())
 
 )
 
-engine = sqlalchemy.create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
-)
 
 metadata.create_all(engine)
 
