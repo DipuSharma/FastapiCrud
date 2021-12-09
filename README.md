@@ -5,7 +5,7 @@ Create .env file and make variable EMAIL = "example@gmail.com" and PASS= "Pass12
 go to your gmail account and do the less security option on and lets use it 
 
 # For Gmail Api test
-replace /gmail?email=example@gamil.com to receipt gmail id as your wish in testapi.py file
+replace /gmail?email=example%40gmail.com to receipt gmail id as your wish in testapi.py file
 Go to app1 directory and run the commond 
 E:\FastApi_Pro\Fastapi\app1>python -m pytest testapi.py
 
